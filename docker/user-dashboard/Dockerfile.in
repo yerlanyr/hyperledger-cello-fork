@@ -19,8 +19,8 @@ COPY user-dashboard/src/yarn.lock /
 RUN cd / && yarn install -g --verbose --registry https://registry.npm.taobao.org/
 ENV PATH ${PATH}:/node_modules/.bin
 COPY user-dashboard/src/packages /packages
-RUN cd /packages/fabric-1.0 && yarn install --registry https://registry.npm.taobao.org/
-RUN cd /packages/fabric-1.2 && yarn install --registry https://registry.npm.taobao.org/
+RUN cd /packages/fabric-1.0 && yarn install --ignore-engines --registry https://registry.npm.taobao.org/
+RUN cd /packages/fabric-1.2 && yarn install --ignore-engines --registry https://registry.npm.taobao.org/
 COPY user-dashboard/src /var/www
 RUN cd /var/www && ln -sf /node_modules . && npm run build
 WORKDIR /var/www
