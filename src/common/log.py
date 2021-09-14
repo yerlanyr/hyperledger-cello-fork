@@ -6,7 +6,8 @@
 import os
 import logging
 
-log_handler = logging.StreamHandler()
+# log_handler = logging.StreamHandler()
+log_handler = logging.FileHandler('/root/cello.log')
 
 formatter = logging.Formatter("[%(asctime)s] %(levelname)s [%(name)s]"
                               " [%(filename)s:%(lineno)s %(funcName)20s()]"
