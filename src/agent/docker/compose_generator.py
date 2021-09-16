@@ -13,10 +13,6 @@ from common import HLF_VERSION, HLF_VERSION_1_2
 
 # FIXME: will dynamic generate crypto config to replace static files.
 CERT_FILES = {
-    "fabric-1.0": [
-        "0e729224e8b3f31784c8a93c5b8ef6f4c1c91d9e6e577c45c33163609fe40011_sk",
-        "a7d47efa46a6ba07730c850fed2c1375df27360d7227f48cdc2f80e505678005_sk"
-    ],
     "fabric-1.2": [
         "ca_sk",
         "ca_sk"
@@ -24,13 +20,11 @@ CERT_FILES = {
 }
 
 IMAGE_VERSIONS = {
-    "fabric-1.0": HLF_VERSION,
     "fabric-1.2": HLF_VERSION_1_2,
 }
 
 # FIXME: ca name need be unique
 CA_NAME_PREFIX = {
-    "fabric-1.0": "ca_peerOrg",
     "fabric-1.2": "ca-org"
 }
 
@@ -41,7 +35,7 @@ class ComposeGenerator(object):
         self._size = int(config.get("size", "4"))
         self._org_count = int(self._size / 2)
         self._config_file = config.get("config_file", "")
-        self._network_type = config.get("network_type", "fabric-1.0")
+        self._network_type = config.get("network_type", "fabric-1.2")
         self._consensus_plugin = config.get("consensus_plugin", "solo")
 
     @staticmethod
